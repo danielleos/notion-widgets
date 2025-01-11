@@ -1,3 +1,18 @@
-<!-- Currency Converter Widget from Common Ninja -->
-<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
-<div class="commonninja_component pid-eccb1b42-58ea-4eb4-9883-a22f93cd6431" id="gbp-usd-wrapper"></div>
+<iframe
+  title="fx"
+  src="https://wise.com/gb/currency-converter/fx-widget/converter?sourceCurrency=GBP&targetCurrency=EUR&amount=1"
+  height=490
+  width=100%
+  frameBorder="0"
+  allowtransparency="true"
+></iframe>
+<script>
+  const frames = document.querySelectorAll('iframe');
+  const widgetFrame = frames[frames.length - 1];
+  window.addEventListener('message', message => {
+    if (message.source !== widgetFrame.contentWindow) {
+    return;
+    }
+    widgetFrame.setAttribute('height', message.data.height);
+  });
+</script>
