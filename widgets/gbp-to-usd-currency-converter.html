@@ -1,18 +1,8 @@
 <iframe
   title="fx"
   src="https://wise.com/gb/currency-converter/fx-widget/converter?sourceCurrency=GBP&targetCurrency=USD&amount=1"
-  height=490
-  width=100%
+  height=290
+  width=700
   frameBorder="0"
   allowtransparency="true"
 ></iframe>
-<script>
-  const frames = document.querySelectorAll('iframe');
-  const widgetFrame = frames[frames.length - 1];
-  window.addEventListener('message', message => {
-    if (message.source !== widgetFrame.contentWindow) {
-    return;
-    }
-    widgetFrame.setAttribute('height', message.data.height);
-  });
-</script>
